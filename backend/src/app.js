@@ -1,12 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import authRoutes from './controllers/authController.js';
-import userRoutes from './controllers/userController.js';
-import postRoutes from './controllers/postController.js';
-import groupRoutes from './controllers/groupController.js';
-import messageRoutes from './controllers/mesController.js';
-import notifiRoutes from './controllers/notifiController.js';
+import apiRoutes from '../src/routes/apiRoutes.js';
+
 const app = express();
 
 // Enable CORS for your frontend (localhost:3000)
@@ -17,12 +13,8 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use('/auth', authRoutes);
-app.use('/users', userRoutes);
-app.use('/posts', postRoutes);
-app.use('/groups', groupRoutes);
-app.use('/messages', messageRoutes);
-app.use('/notifications', notifiRoutes);
+app.use('/api', apiRoutes);
+
 
 mongoose.connect('mongodb+srv://vyvictory:1234567899@cluster0.vahim.mongodb.net/', {
     useNewUrlParser: true,

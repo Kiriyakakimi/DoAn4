@@ -39,7 +39,6 @@ router.post('/register', async (req, res) => {
 
         // Respond with user data excluding password
         res.status(201).json({
-            id: newUser.id,
             name: newUser.name,
             email: newUser.email,
             birthDate: newUser.birthDate,
